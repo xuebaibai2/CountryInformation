@@ -1,0 +1,33 @@
+div.main-div {
+    position: absolute;
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+    top: 10%;
+    left: 25%;
+    border:2px solid darkgray;
+    border-radius: 5px;
+}
+
+div.search-box-div {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #ececec;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 5;
+}
+
+div.country-info-div {
+    
+    position: relative;
+    width: 65%;
+    float: right;
+}
+
+div.history-div {
+    position: relative;
+    width: 34%;
+    float: left;
+}

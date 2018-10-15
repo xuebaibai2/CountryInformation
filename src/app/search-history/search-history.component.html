@@ -1,0 +1,11 @@
+<div *ngIf="searchedCountries.length > 0">
+  <div *ngFor="let country of searchedCountries; let i = index" class="history-cell">
+    <div (click)="onHistoryClicked(country)">
+        <img
+        [src]="country.flag"
+        alt="{{ country.alpha3Code }}"
+        class="img-responsive"
+        style="height: 20px;width:30px;">&nbsp;&nbsp;<small>{{ country.name }} - {{ country.alpha3Code}} </small>
+    </div>
+  </div>
+</div>
