@@ -1,0 +1,39 @@
+input#search-box-input {
+    width: 96%;
+    height: 2em;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    border: 1px solid #dddddd;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+   
+input#search-box-input:focus {
+    box-shadow: 0 0 5px rgb(180, 243, 243);
+    border: 1px solid rgb(180, 243, 243);
+}
+
+div.type-head {
+    border: 0.5px solid lightgrey;
+    background-color: whitesmoke;
+}
+
+div.type-head-cell {
+    margin-top: 0.5em;
+    border: 1px grey;
+    padding: 0.5em;
+    text-align: center;
+}
+
+div.type-head-cell:hover{
+    cursor: pointer;
+    animation-name: hoverColorChange;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hoverColorChange {
+    0% {background-color: whitesmoke;}
+    100% {background-color: rgb(215, 233, 238);}
+}

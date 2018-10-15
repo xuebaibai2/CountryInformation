@@ -1,0 +1,10 @@
+legend{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+span.small-font {
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+}

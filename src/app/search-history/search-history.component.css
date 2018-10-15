@@ -1,0 +1,20 @@
+div.history-cell {
+    margin-top: 0.5em;
+    border: 1px grey;
+    padding: 0.5em;
+    
+}
+
+div.history-cell:hover{
+    cursor: pointer;
+    border: 0.5px solid rgb(211, 211, 211);
+    animation-name: hoverColorChange;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hoverColorChange {
+    0% {background-color: whitesmoke;}
+    100% {background-color: rgb(215, 233, 238);}
+}

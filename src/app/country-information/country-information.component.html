@@ -1,0 +1,32 @@
+<div class="country-detail">
+    <div *ngIf="selectedCountry">
+        <fieldset>
+            <legend>
+                {{ selectedCountry.name }}
+            </legend>
+                <img
+                [src]="selectedCountry.flag"
+                alt="{{ selectedCountry.alpha3Code }}"
+                class="img-responsive"
+                style="max-height: 100px;">
+                <hr>
+                <span class="small-font">Country Currency: </span>
+                <br>
+                <div *ngFor="let currency of selectedCountry.currencies">
+                   &nbsp;&nbsp;{{ currency.name }} ({{ currency.code }} {{ currency.symbol }})
+                </div>
+                
+                <br>
+                <span class="small-font">Country Location: (longitude/latitude) </span>
+                <br>
+                &nbsp;&nbsp;{{ selectedCountry.latlng[0]}}/{{ selectedCountry.latlng[1]}}
+                <br>
+                <br>
+                <span class="small-font">Land Area: </span>
+                <br>
+                &nbsp;&nbsp;{{ selectedCountry.area}}
+        </fieldset>
+    </div>
+    
+    
+</div>
