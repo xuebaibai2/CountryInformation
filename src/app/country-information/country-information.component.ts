@@ -11,14 +11,13 @@ export class CountryInformationComponent implements OnInit {
 
   selectedCountry: Country;
   
-  constructor(private searchBoxService: SearchBoxService) {
+  constructor(private searchBoxService: SearchBoxService) {}
+
+  ngOnInit() {
     this.searchBoxService.countryUpdated
       .subscribe(
       country => this.selectedCountry = country
     );
-  }
-
-  ngOnInit() {
   }
 
 }

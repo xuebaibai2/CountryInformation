@@ -6,7 +6,6 @@ import * as CONSTVALUE from '../shared/const-value';
 
 @Injectable()
 export class SearchBoxService {
-    selectedCountry: Country;
     searchedCountries: Country[];
     historyUpdated = new Subject<Country[]>();
     countryUpdated = new Subject<Country>();

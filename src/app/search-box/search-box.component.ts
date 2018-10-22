@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Country } from '../models/country.model';
 import * as CONSTVALUE from '../shared/const-value';
 import { SearchBoxService } from '../Services/search-box.service';
-import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -19,18 +17,13 @@ export class SearchBoxComponent implements OnInit {
   maxDisplayAmt = 1;
   allCountryList: Country[] = [];
 
-  loadAllCountriesSubscription: Subscription;
+  constructor(private http: HttpClient, private searchBoxService: SearchBoxService) {}
 
-  countryUpdateSubscription: Observable<Country[]>;
-
-  constructor(private http: HttpClient, private searchBoxService: SearchBoxService) { 
+  ngOnInit() {
     this.searchBoxService.allCountriesLoaded
     .subscribe(
       countries => this.allCountryList = countries
     );
-  }
-
-  ngOnInit() {
   }
 
   onKeyUp(value: string) {
