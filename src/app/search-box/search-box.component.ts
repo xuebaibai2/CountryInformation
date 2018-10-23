@@ -29,8 +29,8 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit() {
     // Register keyup susbcription on the search box input element
     fromEvent(this.searchBox.nativeElement, 'keyup')
-    .map( (x: HTMLInputElement) => {
-      return x.target.value;
+    .map( (x: KeyboardEvent) => {
+      return (<HTMLInputElement>x.target).value;
     })
     .debounceTime(500)
     .subscribe(inputText => {
