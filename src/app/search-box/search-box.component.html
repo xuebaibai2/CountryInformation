@@ -1,7 +1,7 @@
 <div class="search-box-div">
   <label for="search-box-input">&nbsp;&nbsp;&nbsp;Search Country: </label>
   <br>
-<input type="text" (keyup)="onKeyUp(country.value)" #country id="search-box-input" >
+<input type="text" #searchBox id="search-box-input" >
 <ng-template [ngIf]="foundResult">
   <div class="type-head">  
   <div *ngFor="let country of countries" class="type-head-cell">

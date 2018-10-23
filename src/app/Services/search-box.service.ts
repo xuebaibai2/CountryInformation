@@ -7,19 +7,42 @@ import * as CONSTVALUE from '../shared/const-value';
 @Injectable()
 export class SearchBoxService {
     searchedCountries: Country[];
-    historyUpdated = new Subject<Country[]>();
-    countryUpdated = new Subject<Country>();
-    allCountriesLoaded = new Subject<Country[]>();
+    historyUpdated$ = new Subject<Country[]>();
+    countryUpdated$ = new Subject<Country>();
+
 
     constructor(private http: HttpClient) {
         this.searchedCountries = [];
-        this.loadAllCountries();
     }
 
-    loadAllCountries() {
-        return this.http.get<Country[]>(CONSTVALUE.URI_GET_ALL_COUNTIRES)
-        .subscribe(
-            countries => this.allCountriesLoaded.next(countries)
+    getCountriesByName(name: string) {
+        return this.http.get<Country[]>(CONSTVALUE.URI_GET_BY_NAME + name).map(
+            (countries: Country[]) => {
+                const resultCountries: Country[] = [];
+                for (let i = 0; i < countries.length; i++) {
+                    if (countries[i].name.toLowerCase().startsWith(name.toLowerCase())) {
+                        resultCountries.push(countries[i]);
+                    }
+                }
+                return resultCountries;
+            }
+        )
+        .catch(
+            (err) => {
+                return [];
+            }
+        );
+    }
+
+    getCountriesByCode(code: string) {
+        return this.http.get<Country>(CONSTVALUE.URI_GET_BY_CODE + code).map(
+            (country: Country) => {
+                return [country];
+            }
+        ).catch(
+            (err) => {
+                return [];
+            }
         );
     }
       
@@ -30,6 +53,6 @@ export class SearchBoxService {
             }
         });
         this.searchedCountries.unshift(country);
-        this.historyUpdated.next(this.searchedCountries);
+        this.historyUpdated$.next(this.searchedCountries);
     }
 }

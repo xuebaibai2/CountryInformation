@@ -14,7 +14,7 @@ export class CountryInformationComponent implements OnInit {
   constructor(private searchBoxService: SearchBoxService) {}
 
   ngOnInit() {
-    this.searchBoxService.countryUpdated
+    this.searchBoxService.countryUpdated$
       .subscribe(
       country => this.selectedCountry = country
     );

@@ -16,7 +16,7 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
   constructor(private searchBoxService: SearchBoxService) { }
    
   ngOnInit() {
-    this.historyUpdateSubscription = this.searchBoxService.historyUpdated
+    this.historyUpdateSubscription = this.searchBoxService.historyUpdated$
     .subscribe(
       countries => this.searchedCountries = countries
     );
@@ -24,7 +24,7 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
   }
 
   onHistoryClicked(country: Country) {
-    this.searchBoxService.countryUpdated.next(country);
+    this.searchBoxService.countryUpdated$.next(country);
     this.searchBoxService.updateSearchHistory(country);
   }
 

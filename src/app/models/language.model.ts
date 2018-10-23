@@ -1,8 +1,8 @@
 export class Language {
     constructor(
-        private iso639_1: string,
-        private iso639_2: string,
-        private name: string,
-        private nativeName: string
+        public iso639_1: string,
+        public iso639_2: string,
+        public name: string,
+        public nativeName: string
     ) {}
 }
